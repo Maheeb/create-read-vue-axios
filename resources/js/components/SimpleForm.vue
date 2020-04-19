@@ -45,6 +45,7 @@
                         <li>Subject: {{userInfo.subject}}</li>
                     </ul>
 
+                    <p>See All information, <a href="/information/show">Click here</a></p>
                 </div>
             </div>
             </div>

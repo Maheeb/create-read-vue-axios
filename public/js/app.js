@@ -1908,12 +1908,58 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Information"
+  name: "Information",
+  data: function data() {
+    return {
+      personals: []
+    };
+  },
+  created: function created() {
+    this.allInformation();
+  },
+  methods: {
+    allInformation: function allInformation() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('http://simpleform.test/information/all').then(function (res) {
+        _this.personals = res.data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -1935,6 +1981,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_toast_notification__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_toast_notification__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_toast_notification_dist_theme_default_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-toast-notification/dist/theme-default.css */ "./node_modules/vue-toast-notification/dist/theme-default.css");
 /* harmony import */ var vue_toast_notification_dist_theme_default_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_toast_notification_dist_theme_default_css__WEBPACK_IMPORTED_MODULE_3__);
+//
 //
 //
 //
@@ -38360,9 +38407,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _c("h2", { staticClass: "text-center mt-2 mb-2" }, [
+        _vm._v(" All information")
+      ]),
+      _vm._v(" "),
+      _c("table", { staticClass: "table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.personals, function(item, index) {
+            return _c("tr", { key: item.id, attrs: { index: index } }, [
+              _c("td", [_vm._v(_vm._s(item.fname))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(item.lname))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(item.country))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(item.subject))])
+            ])
+          }),
+          0
+        )
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("First name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Last name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Country")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Subject")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38567,7 +38657,9 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("li", [_vm._v("Subject: " + _vm._s(_vm.userInfo.subject))])
-                ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0)
               ])
             ])
           ])
@@ -38575,7 +38667,17 @@ var render = function() {
       : _vm._e()
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v("See All information, "),
+      _c("a", { attrs: { href: "/information/show" } }, [_vm._v("Click here")])
+    ])
+  }
+]
 render._withStripped = true
 
 

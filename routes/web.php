@@ -15,8 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('information/show',[
 
+    'as'=> 'information.show',
+    'uses'=>'InformationController@index']);
 Route::get('information/create','InformationController@create');
+
+Route::get('information/all',[
+
+    'as'=> 'information.all',
+    'uses'=>'InformationController@all']);
+
 //Route::post('information','InformationController@store');
 Route::post('information/post',[
     'as'=> 'information.post',

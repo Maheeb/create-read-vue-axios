@@ -1,14 +1,10 @@
 @extends('welcome')
 
 @section('content')
-    <simpleform></simpleform>
 
 
+    <information></information>
 
 
 
 @endsection
-
-
-
-

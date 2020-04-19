@@ -15,8 +15,9 @@ class InformationController extends Controller
     public function index()
     {
         //
+        $infos= Information::all();
 
-
+        return view('showInfo');
     }
 
     /**
@@ -67,6 +68,11 @@ class InformationController extends Controller
     public function show($id)
     {
         //
+//        $infos= Information::orderBy('id')->get();
+//
+//
+//        return response()->json($infos);
+
     }
 
     /**
@@ -101,5 +107,16 @@ class InformationController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function all()
+    {
+        //
+        $infos= Information::orderBy('id')->get();
+
+
+        return response()->json($infos);
+
     }
 }
